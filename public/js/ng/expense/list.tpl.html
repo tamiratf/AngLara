@@ -1,0 +1,88 @@
+<div class="well well">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6">
+                <fieldset>
+                    <legend>Expense</legend>
+                    <form class="">
+                        <div class="md-form ">
+                            <label class="control-label" for="title">Title</label>
+                            <input class="form-control " type="text" id="title" ng-model="expense.title"/>
+                        </div>
+
+                        <div class="md-form">
+                            <label class="control-label" for="amount">Amount</label>
+                            <input class="form-control" type="number" step="0.01" id="amount" ng-model="expense.amount"/>
+                        </div>
+
+                        <div class="md-form">
+                            <label class="control-label" >
+                                <input type="checkbox" class="" ng-model="expense.isPaid"/> Is Paid
+                            </label>
+                            <button class="btn btn-primary pull-right" ng-click="saveExpense()"><span class="glyphicon glyphicon-save"> Save </span></button>
+                            <button class="btn btn-primary pull-right" ng-click="CancelEdit()"><span class="glyphicon glyphicon-eject"> Cancel </span></button>
+                        </div>
+
+                    </form>
+                </fieldset>
+            </div>
+
+            <div class="col-md-4 pull-right">
+                <br>
+                <fieldset>
+                    <legend>Stat</legend>
+                    <div class="md-form ">
+                        <label class="control-label">Not Paid Expenses</label>
+                        <span class="glyphicon glyphicon-leaf"> {{ expenseStat.notPaidExpenses }}</span>
+                    </div>
+                    <hr>
+                    <div class="md-form ">
+                        <label class="control-label" >Paid Expenses</label>
+                        <span class="glyphicon glyphicon-leaf"> {{ expenseStat.paidExpenses }}</span>
+                    </div>
+                    <hr>
+                    <div class="md-form ">
+                        <label class="control-label">Total Expense</label>
+                        <span class="glyphicon glyphicon-leaf"> {{ expenseStat.totalExpense }}</span>
+                    </div>
+                    <hr>
+                </fieldset>
+            </div>
+        </div>
+        <hr />
+
+        <div class="row">
+            <table class="table table-stripped">
+                <thead>
+                    <tr>
+                        <th> No </th>
+                        <th> Title</th>
+                        <th> Amount </th>
+                        <th> Is Paid </th>
+                        <th> Actions </th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                <tr></tr>
+                    <tr ng-repeat="expense in expenses">
+                        <td>{{ $index + 1 }}</td>
+                        <td>{{expense.title }}</td>
+                        <td>{{expense.amount }}</td>
+                        <td>{{expense.isPaid }}</td>
+                        <td>
+                            <button class="btn btn-link" ng-click="editExpense(expense)"><span class="glyphicon glyphicon-edit" ></span></button>
+                            <button class="btn btn-link" ng-click="deleteExpense(expense)"><span class="glyphicon glyphicon-remove"></span></button>
+
+
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+
+
+    </div>
+    <div class="clear-fix"></div>
+</div>

@@ -1,0 +1,11 @@
+.input {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.form-horizontal {
+    padding:0;
+}
+
+
+.row-bottom-margin { margin-bottom:20px; }
